@@ -4,32 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".RegisterActivity">
 
     <ImageView
         android:id="@+id/appLogo"
         android:layout_width="250dp"
         android:layout_height="100dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="40dp"
         android:src="@drawable/applogo"/>
 
-    <TextView
-        android:id="@+id/admin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Admin?"
-        android:layout_alignParentEnd="true"
-        android:padding="20dp"
-        android:textColor="@color/mainColor"/>
-
     <EditText
-        android:id="@+id/phoneNumber"
+        android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/appLogo"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/input_bg"
+        android:hint="Name"
+        android:inputType="text"
+        android:padding="20dp"
+        android:textColor="@color/mainColor"
+        android:textColorHint="@color/mainColor" />
+    <EditText
+        android:id="@+id/phoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/input_bg"
@@ -55,46 +61,30 @@
         android:textColor="@color/mainColor"
         android:textColorHint="@color/mainColor" />
 
-    <LinearLayout
-        android:id="@+id/linear_layout"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/alreadyHaveAccountTV"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:text="Already Have An Account?"
+        android:padding="10dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
         android:layout_below="@+id/password"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp">
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Remember Me"
-            android:textColor="@color/mainColor"
-            />
-
-        <TextView
-            android:id="@+id/forgotPasswordTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Forgot Password?"
-            android:layout_marginLeft="50dp"
-            android:padding="10dp"
-            android:textColor="@color/mainColor"/>
-
-    </LinearLayout>
+        android:textColor="@color/mainColor"/>
 
     <Button
-        android:id="@+id/loginButton"
+        android:id="@+id/registerButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_below="@id/linear_layout"
+        android:layout_below="@id/alreadyHaveAccountTV"
         android:layout_marginStart="17dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="17dp"
         android:background="@drawable/button_bg"
         android:padding="8dp"
-        android:text="Login"
+        android:text="Create Account"
         android:textAllCaps="false" />
 
 </RelativeLayout>
