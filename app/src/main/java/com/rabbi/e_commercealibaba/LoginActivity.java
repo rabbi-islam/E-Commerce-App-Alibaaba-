@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     ActivityLoginBinding binding;
     ProgressDialog pd;
     DatabaseReference reference;
-    String parentDB = "Users";
+    private String parentDB = "Users";
 
 
     @Override
@@ -45,6 +45,24 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 loginUser();
+            }
+        });
+
+        binding.adminTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String text = binding.adminTV.getText().toString();
+
+                if (text.equals("Admin?")){
+                    binding.loginButton.setText("Admin Login");
+                    binding.adminTV.setText("User?");
+                    parentDB="Admins";
+                    Toast.makeText(LoginActivity.this, parentDB, Toast.LENGTH_SHORT).show();
+                }else{
+                    binding.loginButton.setText("Login");
+                    binding.adminTV.setText("Admin?");
+                    parentDB="Users";
+                }
             }
         });
 
@@ -86,12 +104,17 @@ public class LoginActivity extends AppCompatActivity {
                 if (snapshot.child(parentDB).child(phone).exists()){
                     Users userData = snapshot.child(parentDB).child(phone).getValue(Users.class);
 
-                    assert userData != null;
+
                     if (userData.getPhone().equals(phone)){
                         if (userData.getPassword().equals(password)){
-                            Toast.makeText(LoginActivity.this, "logged in successfully!", Toast.LENGTH_SHORT).show();
-                            pd.dismiss();
-                            startActivity(new Intent(LoginActivity.this,HomeActivity.class));
+                            if (parentDB.equals("Admins")){
+                                pd.dismiss();
+                                startActivity(new Intent(LoginActivity.this,AdminCategoryActivity.class));
+                            }else if (parentDB.equals("Users")){
+                                Toast.makeText(LoginActivity.this, "logged in successfully!", Toast.LENGTH_SHORT).show();
+                                pd.dismiss();
+                                startActivity(new Intent(LoginActivity.this,HomeActivity.class));
+                            }
                         }else{
                             Toast.makeText(LoginActivity.this, "wrong password!", Toast.LENGTH_SHORT).show();
                             pd.dismiss();
