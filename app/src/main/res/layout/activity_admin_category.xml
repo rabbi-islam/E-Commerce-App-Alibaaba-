@@ -13,10 +13,43 @@
         android:text="Add New Product"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
+        android:textColor="@color/mainColor"
         android:textSize="25sp"
         android:layout_alignParentTop="true"
         android:textStyle="bold"
         android:layout_marginTop="30dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Outfits"
+        android:textColor="@color/mainColor"
+        android:layout_alignParentStart="true"
+        android:textSize="20sp"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="20dp"
+        android:layout_below="@id/addNewProductTV"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Beautify"
+        android:textColor="@color/mainColor"
+        android:layout_alignParentStart="true"
+        android:textSize="20sp"
+        android:layout_marginTop="26dp"
+        android:layout_marginStart="20dp"
+        android:layout_below="@id/linear_layout1"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Accessories"
+        android:textColor="@color/mainColor"
+        android:layout_alignParentStart="true"
+        android:textSize="20sp"
+        android:layout_marginTop="26dp"
+        android:paddingBottom="20sp"
+        android:layout_marginStart="20dp"
+        android:layout_below="@id/linear_layout2"/>
 
     <LinearLayout
         android:id="@+id/linear_layout1"
@@ -30,10 +63,11 @@
         android:layout_below="@+id/addNewProductTV"
         android:layout_marginTop="40dp">
 
+
         <ImageView
             android:id="@+id/tShirt"
             android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_height="60dp"
             android:src="@drawable/tshirts"/>
         <ImageView
             android:id="@+id/sportTShirt"
@@ -65,7 +99,7 @@
         android:layout_marginTop="40dp">
 
         <ImageView
-            android:id="@+id/glasses"
+            android:id="@+id/sunGlasses"
             android:layout_width="70dp"
             android:layout_height="80dp"
             android:src="@drawable/glasses"/>
@@ -80,9 +114,9 @@
             android:layout_height="90dp"
             android:src="@drawable/hats"/>
         <ImageView
-            android:id="@+id/shoess"
+            android:id="@+id/shoes"
             android:layout_width="70dp"
-            android:layout_height="80dp"
+            android:layout_height="65dp"
             android:src="@drawable/shoess"/>
 
     </LinearLayout>
@@ -99,7 +133,7 @@
         android:layout_marginTop="40dp">
 
         <ImageView
-            android:id="@+id/headphoness"
+            android:id="@+id/headphones"
             android:layout_width="70dp"
             android:layout_height="80dp"
             android:src="@drawable/headphoness"/>
