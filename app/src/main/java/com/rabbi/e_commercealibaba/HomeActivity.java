@@ -20,9 +20,21 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.rabbi.e_commercealibaba.Adapter.ProductAdapter;
+import com.rabbi.e_commercealibaba.Models.ProductData;
 import com.rabbi.e_commercealibaba.Prevalent.Prevalent;
 import com.rabbi.e_commercealibaba.databinding.ActivityHomeBinding;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import io.paperdb.Paper;
@@ -30,6 +42,10 @@ import io.paperdb.Paper;
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
 
+    private List<ProductData> productList;
+    RecyclerView productRecyclerView;
+    ProductAdapter productAdapter;
+    private DatabaseReference reference;
     private ActivityHomeBinding binding;
     DrawerLayout drawer;
 
@@ -39,6 +55,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+//        productRecyclerView = binding.productRecyclerView;
+        productRecyclerView = findViewById(R.id.recyclerMenu);
+        reference = FirebaseDatabase.getInstance().getReference().child("Products");
+        getData();
 
         Paper.init(this);
         setSupportActionBar(binding.appBarHome.toolbar);
@@ -63,6 +84,34 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         CircleImageView userProfileImage = view.findViewById(R.id.userProfileImage);
 
     }
+
+    private void getData() {
+
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                productList = new ArrayList<>();
+
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    ProductData data = dataSnapshot.getValue(ProductData.class);
+                    productList.add(data);
+                }
+
+                productAdapter = new ProductAdapter(productList,HomeActivity.this);
+                productRecyclerView.setLayoutManager(new LinearLayoutManager(HomeActivity.this));
+                productRecyclerView.setAdapter(productAdapter);
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(HomeActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
