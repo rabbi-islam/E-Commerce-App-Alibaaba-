@@ -134,7 +134,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         }else if (id== R.id.nav_orders){
 
         }else if (id== R.id.nav_setting){
-            Toast.makeText(this, "settings", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(HomeActivity.this,SettingsActivity.class));
 
         }else if (id== R.id.nav_logout){
             Paper.book().destroy();

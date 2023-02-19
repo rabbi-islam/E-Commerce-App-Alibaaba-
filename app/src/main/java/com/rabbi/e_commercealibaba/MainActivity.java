@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
                     if (userData.getPhone().equals(phone)){
                         if (userData.getPassword().equals(password)){
                             pd.dismiss();
+                            Prevalent.currentOnlineUser = userData;
                             startActivity(new Intent(MainActivity.this,HomeActivity.class));
                         }else{
                             Toast.makeText(MainActivity.this, "wrong password!", Toast.LENGTH_SHORT).show();
