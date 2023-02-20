@@ -32,6 +32,7 @@ import com.rabbi.e_commercealibaba.Adapter.ProductAdapter;
 import com.rabbi.e_commercealibaba.Models.ProductData;
 import com.rabbi.e_commercealibaba.Prevalent.Prevalent;
 import com.rabbi.e_commercealibaba.databinding.ActivityHomeBinding;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -82,6 +83,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         TextView userNameTv = view.findViewById(R.id.userName);
         userNameTv.setText(Prevalent.currentOnlineUser.getName());
         CircleImageView userProfileImage = view.findViewById(R.id.userProfileImage);
+        Picasso.get().load(Prevalent.currentOnlineUser.getImage()).placeholder(R.drawable.profile).into(userProfileImage);
 
     }
 

@@ -101,6 +101,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
+                Toast.makeText(LoginActivity.this, phone, Toast.LENGTH_SHORT).show();
                 if (snapshot.child(parentDB).child(phone).exists()){
                     Users userData = snapshot.child(parentDB).child(phone).getValue(Users.class);
 
