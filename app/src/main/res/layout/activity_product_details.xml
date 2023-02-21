@@ -67,9 +67,9 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/increaseIconImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:scaleType="centerInside"
             android:layout_marginEnd="5dp"
             android:src="@drawable/plus_icon"/>
@@ -77,15 +77,14 @@
             android:id="@+id/productQuantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="10"
-            android:layout_centerHorizontal="true"
+            android:text="1"
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_marginTop="10dp"/>
         <ImageView
+            android:id="@+id/decreaseIconImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_marginStart="5dp"
             android:scaleType="centerInside"
             android:src="@drawable/minus_icon"/>
@@ -93,6 +92,7 @@
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/cartButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/nav_cart"
