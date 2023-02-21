@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:elevation="15dp">
+
+    <RelativeLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/mainColor">
+
+        <TextView
+            android:id="@+id/productCartName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Product Name"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:layout_marginStart="5dp"/>
+
+        <TextView
+            android:id="@+id/productCartQty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:textAlignment="center"
+            android:layout_alignParentTop="true"
+            android:text="Product Quantity"
+            android:textColor="@color/white"
+            android:textSize="17sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_below="@+id/productCartQty">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:layout_below="@+id/productCartQty"
+                android:textSize="20sp"
+                android:layout_marginStart="5dp"/>
+            <TextView
+                android:id="@+id/productCarPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Product Price"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:layout_below="@+id/productCartQty"
+                android:textSize="20sp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="5dp"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>
